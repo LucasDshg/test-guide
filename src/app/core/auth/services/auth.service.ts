@@ -1,30 +1,13 @@
 import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  Observable,
-  distinctUntilChanged,
-  map,
-  of,
-  throwError,
-} from 'rxjs';
-import { IUser } from '../interfaces/auth.interface';
+import { map, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthStateService } from '../states/auth.states';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private _isAuth$ = new BehaviorSubject<IUser | undefined>(undefined);
-
-  get isAuth(): Observable<IUser | undefined> {
-    return this._isAuth$.asObservable().pipe(distinctUntilChanged());
-  }
-
-  get isAuthValue(): IUser | undefined {
-    return this._isAuth$.value ?? this._getSession();
-  }
-
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _authState: AuthStateService) {}
 
   login(username: string, pass: string) {
     return of(username === 'test' && pass === '123').pipe(
@@ -34,8 +17,8 @@ export class AuthService {
             id: 1,
             name: 'Usuário de test',
           };
-          this._isAuth$.next(data);
-          this._addSession();
+          this._authState.auth = data;
+          this._authState.addSession();
           setTimeout(() => this._router.navigateByUrl('/'), 2000);
 
           return data;
@@ -46,21 +29,8 @@ export class AuthService {
   }
 
   logout() {
-    this._isAuth$.next(undefined);
-    this._clearSession();
+    this._authState.auth = undefined;
+    this._authState.clearSession();
     this._router.navigateByUrl('/login');
-  }
-
-  private _addSession() {
-    sessionStorage.setItem('user', JSON.stringify(this.isAuthValue as IUser));
-  }
-
-  private _getSession() {
-    const session = sessionStorage.getItem('user');
-    if (session) return JSON.parse(session) as IUser;
-    return undefined;
-  }
-  private _clearSession() {
-    sessionStorage.removeItem('user');
   }
 }
