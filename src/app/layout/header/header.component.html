@@ -1,0 +1,28 @@
+<nav class="navbar bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img
+        src="assets/svgs/logo/novo-logo-negativo1.svg"
+        alt="Guide Logo"
+        width="80"
+      />
+    </a>
+
+    <div class="dropdown">
+      <small
+        role="button"
+        class="text-white dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {{ user?.name }}
+      </small>
+
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" role="button" (click)="logout()">Sair</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
