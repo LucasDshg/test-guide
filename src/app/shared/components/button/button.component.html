@@ -1,0 +1,14 @@
+<button type="submit" [disabled]="isDisabled || isLoading" class="btn btn-primary w-100">
+  <ng-container *ngIf="!isLoading; else loadingTemplate">
+    {{ label }}
+  </ng-container>
+</button>
+
+<ng-template #loadingTemplate>
+  <span
+    class="spinner-border spinner-border-sm"
+    role="status"
+    aria-hidden="true"
+  ></span>
+  Carregando...
+</ng-template>
