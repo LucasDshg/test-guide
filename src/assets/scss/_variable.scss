@@ -1,0 +1,33 @@
+$primary-new-guide: #00837f;
+$primary-dark-new-guide: #133a3b;
+$secondary-new-guide: #a4d8de;
+$guide-dark: #343a40;
+$guide-pink: #ff004e;
+
+$cinza-claro-guide: #edece8;
+$verde-guide: #67d286;
+$laranja-guide: #fa8348;
+
+$text-default: #757d6c;
+
+$theme-colors: (
+  "primary": $primary-dark-new-guide,
+  "secondary": $secondary-new-guide,
+  "success": $verde-guide,
+  "info": #17a2b8,
+  "warning": $laranja-guide,
+  "danger": $guide-pink,
+  "light": $cinza-claro-guide,
+  "dark": $guide-dark,
+);
+
+$body-color: $text-default;
+$body-bg: $cinza-claro-guide;
+
+$nav-pills-link-active-bg: $primary-dark-new-guide;
+$nav-link-color: $primary-dark-new-guide;
+$nav-link-hover-color: $primary-new-guide;
+
+$layout-height: calc(100vh - 90px) !default;
+
+
