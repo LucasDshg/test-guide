@@ -24,7 +24,7 @@ export class TableComponent implements OnInit {
   @Input() data!: { quote: IQuotes; timestamp: number[] } | null;
 
   get closeValue() {
-    return this.data!.quote.close;
+    return this.data!.quote.close.slice(-30).reverse();
   }
   constructor() {}
 
