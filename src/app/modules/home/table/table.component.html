@@ -1,0 +1,43 @@
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th scope="col">Dia</th>
+      <th scope="col">Data</th>
+      <th scope="col" class="text-end">Valor</th>
+      <th scope="col" class="text-end">Variação em relaçào a D-1</th>
+      <th scope="col" class="text-end">Variação em relação a primeira data</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="data">
+    <tr *ngFor="let time of data.timestamp ; let i = index">
+      <th scope="row">{{ timeFormat(data.timestamp[i + 1], "d") }}</th>
+      <th>{{ timeFormat(time) }}</th>
+      <td class="text-end">{{ closeValue[i] | currency : "R$" }}</td>
+      <td class="text-end">
+        <ng-container
+          *ngTemplateOutlet="
+            cellVariation;
+            context: { close: closeValue[i], lastValue: closeValue[i - 1] }
+          "
+        ></ng-container>
+      </td>
+      <td class="text-end">
+        <ng-container
+          *ngTemplateOutlet="
+            cellVariation;
+            context: { close: closeValue[i], lastValue: closeValue[0] }
+          "
+        ></ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #cellVariation let-close="close" let-lastValue="lastValue">
+  <span
+    *ngIf="variation(close, lastValue) as variation"
+    [ngClass]="[variation > '0' ? 'text-success' : 'text-danger']"
+  >
+    {{ variation !== "-" ? variation + "%" : variation }}
+  </span>
+</ng-template>
