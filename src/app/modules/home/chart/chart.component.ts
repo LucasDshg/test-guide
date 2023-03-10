@@ -62,7 +62,6 @@ export class ChartComponent implements OnInit, AfterViewInit {
 
         formatter: function (): any {
           const _this = this as any;
-          console.log(_this);
           return `
           <span> ${_this.x}</span>
           <br>
