@@ -8,7 +8,7 @@ import { IQuotes } from '../interfaces/home.interface';
   template: `<div
     id="chart_guide"
     [style.width.%]="100"
-    [style.height]="'var(--layout-height)'"
+    [style.height]="'var(--layout-content-height)'"
   ></div>`,
 })
 export class ChartComponent implements OnInit, AfterViewInit {
@@ -87,7 +87,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
             text: '',
           },
           height: 240,
-          top: '68%',
+          top: '66%',
           opposite: true,
           visible: false,
         },
