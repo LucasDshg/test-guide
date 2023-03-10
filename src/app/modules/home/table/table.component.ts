@@ -9,7 +9,7 @@ import { calcVariation, timestapToDate } from 'src/app/utils/functions';
     `
       :host {
         overflow: auto;
-        height: var(--layout-height);
+        height: var(--layout-content-height);
         display: block;
       }
       .table thead th {

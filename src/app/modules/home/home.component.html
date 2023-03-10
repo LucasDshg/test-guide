@@ -1,5 +1,10 @@
 <section class="row">
-  <div class="col-12">
+  <div class="col-12" *ngIf="data">
+    <h4 class="mb-4">
+      {{ meta.symbol }}
+      {{ meta.regularMarketPrice | currency : 'R$' }}
+    </h4>
+
     <div class="d-flex align-items-start w-100">
       <div
         class="nav flex-column nav-pills me-3"
@@ -32,7 +37,7 @@
           Gráfico
         </button>
       </div>
-      <div class="tab-content w-100" id="v-pills-tabContent" *ngIf="data">
+      <div class="tab-content w-100" id="v-pills-tabContent">
         <div
           class="tab-pane fade show active"
           id="v-pills-history"

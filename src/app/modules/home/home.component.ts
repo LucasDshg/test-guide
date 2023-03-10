@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
   get timestamp() {
     return this.data!.chart.result[0].timestamp.slice();
   }
+  get meta() {
+    return this.data!.chart.result[0].meta
+  }
 
   constructor(private _homeService: HomeService) {}
 
