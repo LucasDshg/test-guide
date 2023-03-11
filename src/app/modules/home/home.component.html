@@ -1,63 +1,58 @@
 <section class="row">
   <div class="col-12" *ngIf="data">
-    <h4 class="mb-4">
-      {{ meta.symbol }}
-      {{ meta.regularMarketPrice | currency : 'R$' }}
-    </h4>
-
-    <div class="d-flex align-items-start w-100">
-      <div
-        class="nav flex-column nav-pills me-3"
-        id="v-pills-tab"
-        role="tablist"
-        aria-orientation="vertical"
-      >
-        <button
-          class="nav-link active"
-          id="v-pills-home-tab"
-          data-bs-toggle="pill"
-          data-bs-target="#v-pills-history"
-          type="button"
-          role="tab"
-          aria-controls="v-pills-history"
-          aria-selected="true"
-        >
-          Histórico
-        </button>
-        <button
-          class="nav-link"
-          id="v-pills-chart-tab"
-          data-bs-toggle="pill"
-          data-bs-target="#v-pills-chart"
-          type="button"
-          role="tab"
-          aria-controls="v-pills-chart"
-          aria-selected="false"
-        >
-          Gráfico
-        </button>
+    <div class="nav nav-pills w-100 my-3" id="pills-tab" role="tablist">
+      <div class="nav-item me-auto">
+        <h4 role="tab" data-bs-toggle="pill">
+          {{ meta.symbol }}
+          {{ meta.regularMarketPrice | currency : 'R$' }}
+        </h4>
       </div>
-      <div class="tab-content w-100" id="v-pills-tabContent">
-        <div
-          class="tab-pane fade show active"
-          id="v-pills-history"
-          role="tabpanel"
-          aria-labelledby="v-pills-history-tab"
-          tabindex="0"
-        >
-          <app-table
-            [data]="{quote, timestamp: timestamp.slice(-30).reverse()}"
-          ></app-table>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="v-pills-chart"
-          role="tabpanel"
-          aria-labelledby="v-pills-chart-tab"
-          tabindex="0"
-        >
-          <app-chart [data]="dataChart"></app-chart>
-        </div>
+      <button
+        class="nav-link active"
+        id="pills-home-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-history"
+        type="button"
+        role="tab"
+        aria-controls="pills-history"
+        aria-selected="true"
+      >
+        Histórico
+      </button>
+      <button
+        class="nav-link"
+        id="pills-chart-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-chart"
+        type="button"
+        role="tab"
+        aria-controls="pills-chart"
+        aria-selected="false"
+      >
+        Gráfico
+      </button>
+    </div>
+
+    <div class="tab-content w-100" id="pills-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="pills-history"
+        role="tabpanel"
+        aria-labelledby="pills-history-tab"
+        tabindex="0"
+      >
+        <app-table
+          [data]="{quote, timestamp: timestamp.slice(-30).reverse()}"
+        ></app-table>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-chart"
+        role="tabpanel"
+        aria-labelledby="pills-chart-tab"
+        tabindex="0"
+      >
+        <app-chart [data]="dataChart"></app-chart>
       </div>
     </div>
   </div>
