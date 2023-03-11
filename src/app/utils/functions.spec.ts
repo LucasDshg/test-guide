@@ -20,7 +20,7 @@ describe('Valid Funtions', () => {
 
   it('should be return date formatted ', () => {
     const fun = timestapToDate(1646917200, 'dd/MM/yyyy', PT_BR);
-    
+
     expect(fun).toBeInstanceOf(String);
     expect(fun).toEqual('10/03/2022');
   });

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IQuotes } from '../interfaces/home.interface';
-import { calcVariation, timestapToDate } from 'src/app/utils/functions';
+import { calcVariation, timestapToDate } from '@utils/functions';
 
 @Component({
   selector: 'app-table',

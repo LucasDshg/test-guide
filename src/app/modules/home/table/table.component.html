@@ -9,10 +9,10 @@
     </tr>
   </thead>
   <tbody *ngIf="data">
-    <tr *ngFor="let time of data.timestamp ; let i = index">
-      <th scope="row">{{ timeFormat(data.timestamp[i + 1], "d") }}</th>
+    <tr *ngFor="let time of data.timestamp; let i = index">
+      <th scope="row">{{ timeFormat(data.timestamp[i + 1], 'd') }}</th>
       <th>{{ timeFormat(time) }}</th>
-      <td class="text-end">{{ closeValue[i] | currency : "R$" }}</td>
+      <td class="text-end">{{ closeValue[i] | currency : 'R$' }}</td>
       <td class="text-end">
         <ng-container
           *ngTemplateOutlet="
@@ -38,6 +38,6 @@
     *ngIf="variation(close, lastValue) as variation"
     [ngClass]="[variation > '0' ? 'text-success' : 'text-danger']"
   >
-    {{ variation !== "-" ? variation + "%" : variation }}
+    {{ variation !== '-' ? variation + '%' : variation }}
   </span>
 </ng-template>

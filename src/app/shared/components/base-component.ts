@@ -28,7 +28,7 @@ export abstract class BaseComponent
   ngAfterViewInit(): void {
     const ngControl: NgControl = this.injector.get(
       NgControl,
-      null
+      null,
     ) as NgControl;
     if (ngControl) {
       this.formControl = ngControl.control as FormControl;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { map, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { map, of } from 'rxjs';
 import { AuthStateService } from '../states/auth.states';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class AuthService {
           return data;
         }
         throw new Error('Usuário ou senha inválida!');
-      })
+      }),
     );
   }
 

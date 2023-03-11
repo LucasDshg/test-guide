@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login.component';
+import { ButtonModule } from '@shared/components/button/button.module';
+import { InputTextModule } from '@shared/components/input-text/input-text-component.module';
 import { AuthRoutes } from './auth.routing';
-import { InputTextModule } from 'src/app/shared/components/input-text/input-text-component.module';
-import { ButtonModule } from 'src/app/shared/components/button/button.module';
+import { LoginComponent } from './login.component';
 
 @NgModule({
   declarations: [LoginComponent],

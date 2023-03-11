@@ -48,7 +48,7 @@ export interface IHomeData {
         indicators: {
           quote: IQuotes[];
         };
-      }
+      },
     ];
     error: null;
   };

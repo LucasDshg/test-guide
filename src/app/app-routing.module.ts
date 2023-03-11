@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './layout/layout.component';
-import { AuthGuardService } from './core/guards/auth-guard.service';
+import { AuthGuardService } from '@core/guards/auth-guard.service';
+import { LayoutComponent } from '@core/layout/layout.component';
 
 const routes: Routes = [
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./auth/login/login.module').then((l) => l.LoginModule),
+      import('./core/auth/login/login.module').then((l) => l.LoginModule),
     data: { title: 'Login' },
   },
 ];

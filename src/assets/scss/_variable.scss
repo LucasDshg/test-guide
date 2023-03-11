@@ -11,14 +11,14 @@ $laranja-guide: #fa8348;
 $text-default: #757d6c;
 
 $theme-colors: (
-  "primary": $primary-dark-new-guide,
-  "secondary": $secondary-new-guide,
-  "success": $verde-guide,
-  "info": #17a2b8,
-  "warning": $laranja-guide,
-  "danger": $guide-pink,
-  "light": $cinza-claro-guide,
-  "dark": $guide-dark,
+  'primary': $primary-dark-new-guide,
+  'secondary': $secondary-new-guide,
+  'success': $verde-guide,
+  'info': #17a2b8,
+  'warning': $laranja-guide,
+  'danger': $guide-pink,
+  'light': $cinza-claro-guide,
+  'dark': $guide-dark,
 );
 
 $body-color: $text-default;
@@ -30,5 +30,3 @@ $nav-link-hover-color: $primary-new-guide;
 
 $layout-height: calc(100vh - 90px) !default;
 $layout-content-height: calc(100vh - 140px) !default;
-
-

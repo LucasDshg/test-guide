@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import { calcVariation, timestapToDate } from 'src/app/utils/functions';
 import { IQuotes } from '../interfaces/home.interface';
+import { calcVariation, timestapToDate } from '@utils/functions';
 
 @Component({
   selector: 'app-chart',

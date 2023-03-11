@@ -1,5 +1,5 @@
 import { formatDate, formatNumber } from '@angular/common';
-import { PT_BR } from '../shared/constants/language.constant';
+import { PT_BR } from '@shared/constants/language.constant';
 
 /**
  * Função utilizada para gerar id aleatorios.
@@ -27,7 +27,7 @@ export function randomId(name: string): string {
 export function timestapToDate(
   value: number,
   format: string = 'shortDate',
-  locale: string = PT_BR
+  locale: string = PT_BR,
 ): string {
   if (!value) return '-';
   return formatDate(1000 * value, format, locale);
