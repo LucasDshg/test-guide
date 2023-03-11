@@ -18,6 +18,7 @@ export class AuthStateService {
 
   set auth(value: IUser | undefined) {
     this._isAuth$.next(value);
+    this.addSession();
   }
   addSession() {
     sessionStorage.setItem('user', JSON.stringify(this.isAuthValue as IUser));

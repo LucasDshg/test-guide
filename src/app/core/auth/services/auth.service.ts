@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, of } from 'rxjs';
+import { delay, map, of } from 'rxjs';
 import { AuthStateService } from '../states/auth.states';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class AuthService {
 
   login(username: string, pass: string) {
     return of(username === 'test' && pass === '123').pipe(
+      delay(2000),
       map((res) => {
         if (res) {
           const data = {
@@ -18,8 +19,8 @@ export class AuthService {
             name: 'Usuário de test',
           };
           this._authState.auth = data;
-          this._authState.addSession();
-          setTimeout(() => this._router.navigateByUrl('/'), 2000);
+
+          this._router.navigateByUrl('/');
 
           return data;
         }
