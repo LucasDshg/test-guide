@@ -19,7 +19,7 @@ export class AuthService {
             name: 'Usuário de test',
           };
           this._authState.auth = data;
-
+          this._authState.addSession();
           this._router.navigateByUrl('/');
 
           return data;
