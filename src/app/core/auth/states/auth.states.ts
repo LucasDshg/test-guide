@@ -16,17 +16,19 @@ export class AuthStateService {
     return this._isAuth$.value ?? this.session;
   }
 
-  set auth(value: IUser | undefined) {
-    this._isAuth$.next(value);
-  }
-  addSession() {
-    sessionStorage.setItem('user', JSON.stringify(this.isAuthValue as IUser));
-  }
-
   get session() {
     const session = sessionStorage.getItem('user');
     if (session) return JSON.parse(session) as IUser;
     return undefined;
   }
+
+  set auth(value: IUser | undefined) {
+    this._isAuth$.next(value);
+  }
+  
+  addSession() {
+    sessionStorage.setItem('user', JSON.stringify(this.isAuthValue as IUser));
+  }
+
   clearSession = () => sessionStorage.removeItem('user');
 }
