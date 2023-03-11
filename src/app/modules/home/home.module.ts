@@ -7,10 +7,16 @@ import { HomeComponent } from './home.component';
 import { HomeRoutes } from './home.routing';
 import { HomeService } from './service/home.service';
 import { TableComponent } from './table/table.component';
+import { TooltipsModule } from '@shared/directives/tooltip/tooltips.module';
 
 @NgModule({
   declarations: [HomeComponent, TableComponent, ChartComponent],
-  imports: [CommonModule, HttpClientModule, RouterModule.forChild(HomeRoutes)],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    TooltipsModule,
+    RouterModule.forChild(HomeRoutes),
+  ],
   exports: [HomeComponent],
   providers: [HomeService],
 })
