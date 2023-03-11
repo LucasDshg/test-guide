@@ -2,6 +2,7 @@
   type="submit"
   [disabled]="isDisabled || isLoading"
   class="btn btn-primary w-100"
+    (click)="onClick.emit($event)"
 >
   <ng-container *ngIf="!isLoading; else loadingTemplate">
     {{ label }}
